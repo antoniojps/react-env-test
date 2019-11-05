@@ -14,6 +14,8 @@ const DEPLOY_ENV = {
   dev: 'dev',
 };
 
+export const REACT_APP_DEPLOY_ENV = process.env.REACT_APP_DEPLOY_ENV || DEPLOY_ENV.dev
+
 const computedDeployUrl = ({ qa, dev, production }) => {
   const ENV = process.env.NODE_ENV;
   const REACT_APP_DEPLOY_ENV = process.env.REACT_APP_DEPLOY_ENV || DEPLOY_ENV.dev;
@@ -25,8 +27,8 @@ const computedDeployUrl = ({ qa, dev, production }) => {
 };
 
 export const PORTAL_IMAGES_ENDPOINT = (() => {
-  const qa = 'https://api-imagens.dev.ua.pt/v1';
-  const dev = 'https://api-imagens.qa.ua.pt/v1';
+  const qa = 'https://api-imagens.qa.ua.pt/v1';
+  const dev = 'https://api-imagens.dev.ua.pt/v1';
   const production = 'https://api-imagens.ua.pt/v1';
 
   return computedDeployUrl({
